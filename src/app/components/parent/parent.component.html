@@ -1,0 +1,10 @@
+<p>parent works!</p>
+<input type="text" [(ngModel)]="greetings" class="form-control" />
+<br />
+<input type="text" [(ngModel)]="mobile" class="form-control" />
+<br />
+<button class="btn btn-success" (click)="addMobile()">Add Mobile</button>
+<app-child [greet]="greetings" [mobiles]="mobiles">
+  <h2 class="counter" #h>{{ counter }}</h2>
+  <button class="btn btn-success" (click)="updateCounter()">Increment</button>
+</app-child>

@@ -5,6 +5,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { MasterComponent } from './components/master/master.component';
+import { RxjsLearningComponent } from './components/rxjs-learning/rxjs-learning.component';
 import { authGuard } from './service/auth.guard';
 
 export const routes: Routes = [
@@ -37,6 +38,10 @@ export const routes: Routes = [
       {
         path: 'client-project',
         component: ClientProjectComponent,
+      },
+      {
+        path: 'rxjs-learning',
+        component: RxjsLearningComponent,
       },
     ],
   },
