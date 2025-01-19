@@ -1,0 +1,41 @@
+<div class="row" class="mt-5">
+  <h3>{{ isEdit ? "Edit" : "Add" }} Post</h3>
+  <hr />
+  <form [formGroup]="postsForm" (ngSubmit)="addPost()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        formControlName="title"
+      />
+      <div
+        *ngIf="postsForm.touched && postsForm.controls['title'].errors"
+        class="alert alert-danger mt-2"
+      >
+        <div *ngIf="postsForm.controls['title'].errors?.['required']">
+          Title is required.
+        </div>
+        <div *ngIf="postsForm.controls['title'].errors?.['minlength']">
+          Title must be at least 4 characters long.
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        formControlName="description"
+      />
+      <div [ngClass]="showDescriptionError() ? 'alert alert-danger mt-2' : ''">
+        {{ showDescriptionError() }}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!postsForm.valid">
+      {{ isEdit ? "Save Changes" : "Submit" }}
+    </button>
+  </form>
+</div>

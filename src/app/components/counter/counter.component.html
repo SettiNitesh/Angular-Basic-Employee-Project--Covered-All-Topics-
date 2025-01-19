@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Current Count: {{ counter$ | async }}</h2>
+
+  <div>
+    <button (click)="increment()" class="btn btn-primary">Increment</button>
+
+    <button (click)="decrement()" class="btn btn-success">Decrement</button>
+
+    <button (click)="reset()" class="btn btn-danger">Reset Counter</button>
+  </div>
+</div>
+<br />
+<h3>{{ channelName$ | async }}</h3>
+<br />
+<div class="row">
+  <div class="col-8">
+    <div class="d-flex">
+      <input type="text" class="form-control me-2" [(ngModel)]="value" />
+      <button class="btn btn-danger w-100" (click)="addToCounter()">
+        Add to Counter
+      </button>
+      <button class="btn btn-warning w-100" (click)="changeChannelName()">
+        Change Channel Name
+      </button>
+    </div>
+  </div>
+</div>
