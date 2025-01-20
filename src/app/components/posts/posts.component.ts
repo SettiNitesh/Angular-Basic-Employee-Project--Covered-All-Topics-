@@ -22,8 +22,8 @@ export class PostsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.posts$ = this.store.select(getPosts);
     this.store.dispatch(loadPosts());
+    this.posts$ = this.store.select(getPosts);
   }
 
   editPost(post: IPost) {
