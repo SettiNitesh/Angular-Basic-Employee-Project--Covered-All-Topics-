@@ -4,13 +4,14 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IPost } from '../../model/interface/post';
+import { ReversePipe } from '../../shared/pipes/reverse.pipe';
 import { IAppState } from '../../store/app.state';
 import { deletePost, loadPosts } from '../../store/posts/posts.action';
 import { getPosts } from '../../store/posts/posts.selector';
 
 @Component({
   selector: 'app-posts',
-  imports: [CommonModule, AsyncPipe, RouterLink, RouterOutlet],
+  imports: [CommonModule, AsyncPipe, RouterLink, RouterOutlet, ReversePipe],
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.css',
 })
