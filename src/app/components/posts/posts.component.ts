@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { IPost } from '../../model/interface/post';
 import { IAppState } from '../../store/app.state';
-import { deletePost } from '../../store/posts/posts.action';
+import { deletePost, loadPosts } from '../../store/posts/posts.action';
 import { getPosts } from '../../store/posts/posts.selector';
 
 @Component({
@@ -23,6 +23,7 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.posts$ = this.store.select(getPosts);
+    this.store.dispatch(loadPosts());
   }
 
   editPost(post: IPost) {

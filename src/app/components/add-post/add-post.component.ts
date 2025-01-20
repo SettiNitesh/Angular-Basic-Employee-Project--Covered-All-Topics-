@@ -35,7 +35,7 @@ export class AddPostComponent implements OnInit {
             if (post) {
               this.postsForm.patchValue({
                 title: post.title,
-                description: post.description,
+                description: post.body,
               });
             }
           });
@@ -73,7 +73,7 @@ export class AddPostComponent implements OnInit {
 
     const post: IPost = {
       title: this.postsForm.value.title || '',
-      description: this.postsForm.value.description || '',
+      body: this.postsForm.value.description || '',
     };
 
     if (this.isEdit && this.postId) {
