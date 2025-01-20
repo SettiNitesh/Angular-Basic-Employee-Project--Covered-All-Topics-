@@ -13,5 +13,5 @@ export const postsEffect = createEffect(
       )
     );
   },
-  { functional: true, dispatch: false }
+  { functional: true }
 );
