@@ -1,6 +1,20 @@
+<div [ngSwitch]="switch">
+  <p *ngSwitchCase="'Fan'">You turned on Fan</p>
+  <p *ngSwitchCase="'Light'">You turned on Light</p>
+  <p *ngSwitchDefault>You turned off all</p>
+</div>
 <div class="row">
   <div class="col-md-8 mt-5">
-    <h3>Posts List</h3>
+    <h3
+      appRendererHighlight
+      [defaultColor]="'purple'"
+      [ngStyle]="{
+        color: 'white',
+        textAlign: 'center'
+      }"
+    >
+      {{ "Posts List " | uppercase }}
+    </h3>
     <a href="#" class="btn btn-primary mb-2" [routerLink]="['/posts/add']">
       Add Post
     </a>

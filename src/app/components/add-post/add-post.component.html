@@ -1,5 +1,8 @@
 <div class="row" class="mt-5">
-  <h3>{{ isEdit ? "Edit" : "Add" }} Post</h3>
+  <h3>
+    {{ isEdit ? "Edit" : "Add" }} Post
+    <span *appAlternateIf="isAvailable">Raccoon</span>
+  </h3>
   <hr />
   <form [formGroup]="postsForm" (ngSubmit)="addPost()">
     <div class="mb-3">

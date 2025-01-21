@@ -9,19 +9,22 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IPost } from '../../model/interface/post';
+import { AlternateIfDirective } from '../../shared/directives/alternate-if.directive';
 import { IAppState } from '../../store/app.state';
 import { addPost, editPost } from '../../store/posts/posts.action';
 import { getPostById } from '../../store/posts/posts.selector';
 
 @Component({
   selector: 'app-add-post',
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, AlternateIfDirective],
   templateUrl: './add-post.component.html',
   styleUrl: './add-post.component.css',
 })
 export class AddPostComponent implements OnInit {
   isEdit: boolean = false;
   postId: number | null = null;
+  isAvailable: boolean = true;
+
   constructor(private store: Store<IAppState>, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
