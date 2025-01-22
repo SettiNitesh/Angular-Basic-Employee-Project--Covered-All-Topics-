@@ -1,0 +1,48 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
+  background-size: cover;
+}
+
+.example-card-footer {
+  padding: 16px;
+}
+
+.table {
+  width: 100%;
+}
+
+.mat-column-Position {
+  width: 32px;
+  border-left: 1px solid currentColor;
+  padding-right: 24px;
+  text-align: center;
+}
+
+.mat-column-Name {
+  padding-left: 16px;
+  font-size: 20px;
+}
+
+.mat-column-Weight {
+  font-style: italic;
+}
+
+.mat-column-Symbol {
+  width: 32px;
+  text-align: center;
+  font-weight: bold;
+}

@@ -7,6 +7,7 @@ import { EmployeeComponent } from './components/employee/employee.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './components/login/login.component';
 import { MasterComponent } from './components/master/master.component';
+import { MaterialComponent } from './components/material/material.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { RxjsLearningComponent } from './components/rxjs-learning/rxjs-learning.component';
 import { authGuard } from './service/auth.guard';
@@ -63,6 +64,10 @@ export const routes: Routes = [
             component: AddPostComponent,
           },
         ],
+      },
+      {
+        path: 'material',
+        component: MaterialComponent,
       },
     ],
   },
