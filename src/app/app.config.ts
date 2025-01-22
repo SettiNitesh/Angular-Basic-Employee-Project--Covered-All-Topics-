@@ -13,6 +13,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { routes } from './app.routes';
 import { appReducers } from './store/app.reducer';
 import { postsEffect } from './store/posts/posts.effects';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,6 +23,6 @@ export const appConfig: ApplicationConfig = {
     provideStore(appReducers),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideEffects([{ postsEffect }]),
-    provideAnimations(),
+    provideAnimations(), provideAnimationsAsync(), provideAnimationsAsync(),
   ],
 };
