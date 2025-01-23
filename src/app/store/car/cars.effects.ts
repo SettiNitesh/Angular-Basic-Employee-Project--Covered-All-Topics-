@@ -1,10 +1,12 @@
 import { inject } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { catchError, map, mergeMap, of } from 'rxjs';
 import { CarService } from '../../service/car.service';
 import { IAppState } from '../app.state';
 import { setLoading } from '../loader/loader.action';
+
 import {
   addCar,
   addCarSuccess,
@@ -38,7 +40,8 @@ export const addCar$ = createEffect(
   (
     actions$ = inject(Actions),
     carsService = inject(CarService),
-    store = inject(Store<IAppState>)
+    store = inject(Store<IAppState>),
+    snackBar = inject(MatSnackBar)
   ) => {
     return actions$.pipe(
       ofType(addCar),
@@ -46,6 +49,9 @@ export const addCar$ = createEffect(
         return carsService.addCar(action.car).pipe(
           map((data) => {
             store.dispatch(setLoading({ isLoading: false }));
+            snackBar.open('New Car added successfully!', 'Close', {
+              duration: 3000,
+            });
             return addCarSuccess({ car: data });
           }),
           catchError((err) => {
@@ -63,7 +69,8 @@ export const updateCar$ = createEffect(
   (
     actions$ = inject(Actions),
     carsService = inject(CarService),
-    store = inject(Store<IAppState>)
+    store = inject(Store<IAppState>),
+    snackBar = inject(MatSnackBar)
   ) => {
     return actions$.pipe(
       ofType(updateCar),
@@ -71,6 +78,9 @@ export const updateCar$ = createEffect(
         return carsService.updateCar(action.car).pipe(
           map((data) => {
             store.dispatch(setLoading({ isLoading: false }));
+            snackBar.open('Car Edited successfully!', 'Close', {
+              duration: 3000,
+            });
             return updateCarSuccess({ car: data });
           }),
           catchError((err) => {
@@ -88,7 +98,8 @@ export const deleteCar$ = createEffect(
   (
     actions$ = inject(Actions),
     carsService = inject(CarService),
-    store = inject(Store<IAppState>)
+    store = inject(Store<IAppState>),
+    snackBar = inject(MatSnackBar)
   ) => {
     return actions$.pipe(
       ofType(deleteCar),
@@ -96,6 +107,9 @@ export const deleteCar$ = createEffect(
         return carsService.deleteCarByID(action.carId).pipe(
           map((data) => {
             store.dispatch(setLoading({ isLoading: false }));
+            snackBar.open('Car Deleted successfully!', 'Close', {
+              duration: 3000,
+            });
             return deleteCarSuccess({ car: data });
           }),
           catchError((err) => {
