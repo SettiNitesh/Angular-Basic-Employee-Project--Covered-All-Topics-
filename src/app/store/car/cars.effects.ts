@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { map, mergeMap } from 'rxjs';
+import { catchError, map, mergeMap, of } from 'rxjs';
 import { CarService } from '../../service/car.service';
 import { IAppState } from '../app.state';
 import { setLoading } from '../loader/loader.action';
@@ -24,7 +24,11 @@ export const loadCars$ = createEffect(
         carsService
           .getAllCarRentals()
           .pipe(map((data) => loadCarsSuccess(data)))
-      )
+      ),
+      catchError((err) => {
+        console.log(err);
+        return of();
+      })
     );
   },
   { functional: true }
@@ -43,6 +47,10 @@ export const addCar$ = createEffect(
           map((data) => {
             store.dispatch(setLoading({ isLoading: false }));
             return addCarSuccess({ car: data });
+          }),
+          catchError((err) => {
+            console.log(err);
+            return of();
           })
         );
       })
@@ -64,6 +72,10 @@ export const updateCar$ = createEffect(
           map((data) => {
             store.dispatch(setLoading({ isLoading: false }));
             return updateCarSuccess({ car: data });
+          }),
+          catchError((err) => {
+            console.log(err);
+            return of();
           })
         );
       })
@@ -85,6 +97,10 @@ export const deleteCar$ = createEffect(
           map((data) => {
             store.dispatch(setLoading({ isLoading: false }));
             return deleteCarSuccess({ car: data });
+          }),
+          catchError((err) => {
+            console.log(err);
+            return of();
           })
         );
       })
