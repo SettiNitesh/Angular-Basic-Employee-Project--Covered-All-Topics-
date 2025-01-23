@@ -1,0 +1,48 @@
+/* Card Styling */
+.card {
+  border: 1px solid #ddd;
+}
+
+/* Table Styling */
+.car-table {
+  width: 100%;
+  background-color: white;
+  border-collapse: collapse;
+}
+
+/* Header Styling */
+.car-table th {
+  background-color: #3f51b5;
+  color: white;
+  text-align: left;
+  padding: 12px;
+  font-weight: bold;
+}
+
+/* Cell Styling */
+.car-table td {
+  color: black;
+  padding: 12px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Mat Header Title */
+mat-card-title {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+button {
+  margin: 2px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-content {
+  padding-top: 16px;
+}

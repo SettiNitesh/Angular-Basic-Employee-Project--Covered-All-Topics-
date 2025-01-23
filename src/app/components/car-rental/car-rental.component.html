@@ -1,0 +1,98 @@
+<mat-card class="card">
+  <mat-card-header class="card-header">
+    <mat-card-title style="font-size: 1.5rem; text-align: center"
+      >Car Rentals</mat-card-title
+    >
+    <button
+      mat-raised-button
+      (click)="
+        openDialog({
+          dailogTitle: 'Add Car Rentals',
+          isEdit: false,
+          saveBtnTitle: 'Save'
+        })
+      "
+      color="primary"
+    >
+      Add Car (+)
+    </button>
+  </mat-card-header>
+  <mat-card-content class="card-content">
+    <table
+      mat-table
+      matSort
+      [dataSource]="carsDataSource"
+      multiTemplateDataRows
+      class="mat-elevation-z8 car-table"
+    >
+      <!-- Car ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.carId }}</td>
+      </ng-container>
+
+      <!-- Car Name Column -->
+      <ng-container matColumnDef="brand">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>Brand</th>
+        <td mat-cell *matCellDef="let element">{{ element.brand }}</td>
+      </ng-container>
+
+      <!-- Car Model Column -->
+      <ng-container matColumnDef="model">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>Model</th>
+        <td mat-cell *matCellDef="let element">{{ element.model }}</td>
+      </ng-container>
+
+      <!-- Year Column -->
+      <ng-container matColumnDef="year">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>Year</th>
+        <td mat-cell *matCellDef="let element">{{ element.year }}</td>
+      </ng-container>
+
+      <!-- Color Column -->
+      <ng-container matColumnDef="color">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>Color</th>
+        <td mat-cell *matCellDef="let element">{{ element.color || "NA" }}</td>
+      </ng-container>
+
+      <!-- Daily Rate Column -->
+      <ng-container matColumnDef="dailyRate">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>Daily Rate</th>
+        <td mat-cell *matCellDef="let element">{{ element.dailyRate }}</td>
+      </ng-container>
+
+      <!-- Registration Number Column -->
+      <ng-container matColumnDef="redgNo">
+        <th mat-sort-header mat-header-cell *matHeaderCellDef>Redg No</th>
+        <td mat-cell *matCellDef="let element">{{ element.regNo }}</td>
+      </ng-container>
+
+      <!-- Registration Number Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" (click)="onEdit(element)">
+            Edit
+          </button>
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="onDelete(element.carId)"
+          >
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="carTableColumnDefs"></tr>
+      <tr mat-row *matRowDef="let row; columns: carTableColumnDefs"></tr>
+    </table>
+  </mat-card-content>
+  <br />
+  <mat-card-footer>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 50]"
+      showFirstLastButtons
+    ></mat-paginator>
+  </mat-card-footer>
+</mat-card>

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AddPostComponent } from './components/add-post/add-post.component';
+import { CarRentalComponent } from './components/car-rental/car-rental.component';
 import { ClientProjectComponent } from './components/client-project/client-project.component';
 import { ClientComponent } from './components/client/client.component';
 import { CounterComponent } from './components/counter/counter.component';
@@ -68,6 +69,10 @@ export const routes: Routes = [
       {
         path: 'material',
         component: MaterialComponent,
+      },
+      {
+        path: 'car-rental',
+        component: CarRentalComponent,
       },
     ],
   },
