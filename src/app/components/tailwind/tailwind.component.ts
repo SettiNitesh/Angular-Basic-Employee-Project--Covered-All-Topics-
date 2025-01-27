@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Card } from '../../model/interface/card';
 
 @Component({
   selector: 'app-tailwind',
@@ -28,4 +29,16 @@ export class TailwindComponent {
       console.log(this.userForm.value);
     }
   }
+
+  cards: Card[] = Array(10)
+    .fill(null)
+    .map((_, index) => ({
+      id: index + 1,
+      title: `Project ${index + 1}`,
+      content: `This is a sample description for project ${
+        index + 1
+      }. It contains dummy text to demonstrate card layout.`,
+      date: new Date(2024, 0, index + 1).toLocaleDateString(),
+      status: index % 2 === 0 ? 'Active' : 'Pending',
+    }));
 }
