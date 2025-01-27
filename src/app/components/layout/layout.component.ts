@@ -14,7 +14,6 @@ import {
 })
 export class LayoutComponent {
   router: Router = inject(Router);
-
   onLogOut(): void {
     this.router.navigateByUrl('/login');
     localStorage.removeItem('cred');

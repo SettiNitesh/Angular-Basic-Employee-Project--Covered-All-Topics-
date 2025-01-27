@@ -1,0 +1,44 @@
+<form
+  [formGroup]="userForm"
+  (ngSubmit)="onSubmit()"
+  aria-labelledby="form-title"
+>
+  <h2 id="form-title">User Registration</h2>
+  <div>
+    <label for="name">Name:</label>
+    <input
+      id="name"
+      type="text"
+      formControlName="name"
+      aria-describedby="name-error"
+      required
+    />
+    <div
+      *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched"
+      id="name-error"
+      role="alert"
+    >
+      Please enter a valid name
+    </div>
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input matInput type="email" id="email" formControlName="email" required />
+    <div
+      *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched"
+      id="email-error"
+      role="alert"
+    >
+      Please enter a valid email
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    [disabled]="userForm.invalid"
+    aria-label="Submit registration form"
+  >
+    Submit
+  </button>
+</form>

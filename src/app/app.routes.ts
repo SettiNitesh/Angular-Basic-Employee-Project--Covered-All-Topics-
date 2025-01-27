@@ -11,6 +11,7 @@ import { MasterComponent } from './components/master/master.component';
 import { MaterialComponent } from './components/material/material.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { RxjsLearningComponent } from './components/rxjs-learning/rxjs-learning.component';
+import { TailwindComponent } from './components/tailwind/tailwind.component';
 import { authGuard } from './service/auth.guard';
 
 export const routes: Routes = [
@@ -73,6 +74,10 @@ export const routes: Routes = [
       {
         path: 'car-rental',
         component: CarRentalComponent,
+      },
+      {
+        path: 'tailwind',
+        component: TailwindComponent,
       },
     ],
   },

@@ -1,89 +1,110 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#mynavbar"
+<nav class="bg-gray-800 w-full p-2">
+  <div
+    class="flex lg:items-center lg:flex-row md: flex-col sm:flex-col justify-between"
+  >
+    <ul
+      class="flex lg:flex-row lg:items-center sm:flex-col sm:items-start md:flex flex-col md:items-start md:justify-items-start md:text-md sm:text-violet-950 text-[16px]"
     >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mynavbar">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/master" routerLinkActive="active"
-            >Master</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="'/employee'"
-            routerLinkActive="active"
-            >Employee</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/client'" routerLinkActive="active"
-            >Client</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="'/client-project'"
-            routerLinkActive="active"
-            >Client Project</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="'/rxjs-learning'"
-            routerLinkActive="active"
-            >Rxjs Learning</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="'/counter'"
-            routerLinkActive="active"
-            >NgRx</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="'/posts'" routerLinkActive="active"
-            >Posts</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="'/material'"
-            routerLinkActive="active"
-            >Angular Material</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            [routerLink]="'/car-rental'"
-            routerLinkActive="active"
-            >Car Rental</a
-          >
-        </li>
-      </ul>
-      <form class="d-flex">
-        <button class="btn btn-primary" type="button" (click)="onLogOut()">
-          LogOut
+      <li style="text-decoration: none">
+        <button
+          routerLink="/master"
+          routerLinkActive="bg-gray-700"
+          class="text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+        >
+          Master
         </button>
-      </form>
-    </div>
+      </li>
+      <li>
+        <button
+          [routerLink]="'/employee'"
+          routerLinkActive="bg-gray-700"
+          class="text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+        >
+          Employee
+        </button>
+      </li>
+      <li>
+        <button
+          [routerLink]="'/client'"
+          routerLinkActive="bg-gray-700"
+          class="text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+        >
+          Client
+        </button>
+      </li>
+      <li>
+        <button
+          [routerLink]="'/client-project'"
+          routerLinkActive="bg-gray-700"
+          class="text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+        >
+          Client Project
+        </button>
+      </li>
+      <li>
+        <button
+          [routerLink]="'/rxjs-learning'"
+          routerLinkActive="bg-gray-700"
+          class="text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+        >
+          Rxjs Learning
+        </button>
+      </li>
+      <li>
+        <button
+          [routerLink]="'/counter'"
+          routerLinkActive="bg-gray-700"
+          class="text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+        >
+          NgRx
+        </button>
+      </li>
+      <li>
+        <button
+          [routerLink]="'/posts'"
+          routerLinkActive="bg-gray-700"
+          class="text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+        >
+          Posts
+        </button>
+      </li>
+      <li>
+        <button
+          [routerLink]="'/material'"
+          routerLinkActive="bg-gray-700"
+          class="text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+        >
+          Angular Material
+        </button>
+      </li>
+      <li>
+        <button
+          [routerLink]="'/car-rental'"
+          routerLinkActive="bg-gray-700"
+          class="text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+        >
+          Car Rental
+        </button>
+      </li>
+      <li>
+        <button
+          [routerLink]="'/tailwind'"
+          routerLinkActive="bg-gray-700"
+          class="text-white hover:bg-gray-700 px-3 py-2 rounded-md transition-colors"
+        >
+          Tailwind
+        </button>
+      </li>
+    </ul>
+    <button
+      (click)="onLogOut()"
+      class="btn btn-primary bg-red-500 text-white rounded px-3 py-2"
+    >
+      LogOut
+    </button>
   </div>
 </nav>
 
-<div class="container p-2">
+<div class="container mx-auto p-4">
   <router-outlet />
 </div>

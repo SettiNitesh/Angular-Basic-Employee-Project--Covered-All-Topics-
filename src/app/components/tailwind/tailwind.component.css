@@ -1,0 +1,14 @@
+.menu-button {
+  display: none;
+}
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+  #nav-menu {
+    display: none;
+    &.is-open {
+      display: block;
+    }
+  }
+}
